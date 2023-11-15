@@ -212,12 +212,14 @@ function customer_deal_registrations_display_submissions() {
 
     // Check if there are any submissions
     if ($submissions) {
-        // Start building an HTML table
-        echo '<table style="width:100%; border-collapse: collapse;">';
+        // Use WordPress admin table styles
+        echo '<div class="wrap">';
+        echo '<h1 class="wp-heading-inline">Form Submissions</h1>';
+        echo '<table class="wp-list-table widefat fixed striped">';
         echo '<thead>';
-        echo '<tr><th>ID</th><th>Company Name</th><th>Contact Name</th><th>Phone</th><th>Email</th><th>Customer Requirement</th><th>Partner Name</th><th>Partner Contact</th><th>Partner Phone</th><th>Partner Email</th><th>Interests</th><th>Attachment URL</th><th>Comments</th></tr>'; // Add other headers as needed
+        echo '<tr><th>ID</th><th>Company Name</th><th>Contact Name</th><th>Phone</th><th>Email</th><th>Customer Requirement</th><th>Partner Name</th><th>Partner Contact</th><th>Partner Phone</th><th>Partner Email</th><th>Interests</th><th>Attachment URL</th><th>Comments</th></tr>';
         echo '</thead>';
-        echo '<tbody>';
+        echo '<tbody id="the-list">';
         foreach ($submissions as $submission) {
             echo '<tr>';
             echo '<td>' . esc_html($submission->id) . '</td>';
@@ -230,14 +232,20 @@ function customer_deal_registrations_display_submissions() {
             echo '<td>' . esc_html($submission->partner_contact) . '</td>';
             echo '<td>' . esc_html($submission->partner_phone) . '</td>';
             echo '<td>' . esc_html($submission->partner_email) . '</td>';
-            echo '<td>' . esc_html($submission->interests) . '</td>'; // Assuming interests are stored as a serialized string
-            echo '<td>' . esc_html($submission->attachment_url) . '</td>'; // Check if this field matches your database schema
+            $interests = maybe_unserialize($submission->interests);
+            if (is_array($interests)) {
+                echo '<td>' . esc_html(implode(', ', $interests)) . '</td>';
+            } else {
+                echo '<td>' . esc_html($submission->interests) . '</td>'; // Fallback if not serialized
+            }
+            echo '<td>' . esc_html($submission->attachment_url) . '</td>';
             echo '<td>' . esc_html($submission->comments) . '</td>';
             echo '</tr>';
         }
         echo '</tbody>';
         echo '</table>';
+        echo '</div>';
     } else {
-        echo 'No submissions found.';
+        echo '<div class="wrap"><h1 class="wp-heading-inline">Form Submissions</h1><p>No submissions found.</p></div>';
     }
 }
