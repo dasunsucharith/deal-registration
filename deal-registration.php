@@ -8,6 +8,7 @@ Author: Dasun Sucharith Pathinayake
 
 function my_custom_form_enqueue_style()
 {
+    wp_enqueue_style('google-fonts-poppins', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
     wp_enqueue_style('my-custom-form-style', plugin_dir_url(__FILE__) . 'style.css');
 }
 add_action('wp_enqueue_scripts', 'my_custom_form_enqueue_style');
@@ -16,43 +17,108 @@ function my_custom_form_shortcode()
 {
     ob_start();
 ?>
-    <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
-        <!-- Customer Info -->
-        <h3>Customer Information</h3>
-        <input type="text" name="company_name" placeholder="Company Name" required>
-        <input type="text" name="contact_name" placeholder="Contact Name" required>
-        <input type="tel" name="phone" placeholder="Phone (with country code)" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="customer_requirement" placeholder="Customer Requirement"></textarea>
+    <div class="deal-registration-form">
+        <h1>Deal Registration</h1>
+        <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="my-custom-form" enctype="multipart/form-data">
+            <!-- Customer Info -->
+            <div class="form-section customer-info">
+                <h3>Customer Information</h3>
 
-        <!-- Partner Info -->
-        <h3>Partner Information</h3>
-        <input type="text" name="partner_name" placeholder="Partner Name" required>
-        <input type="text" name="partner_contact" placeholder="Contact Person" required>
-        <input type="tel" name="partner_phone" placeholder="Phone (with country code)" required>
-        <input type="email" name="partner_email" placeholder="Email" required>
-        <div>
-            <p>Area of Interest:</p>
-            <label><input type="checkbox" name="interest[]" value="AI"> AI</label>
-            <label><input type="checkbox" name="interest[]" value="Digital_Healthcare"> Digital Healthcare</label>
-            <label><input type="checkbox" name="interest[]" value="Digital_Telco"> Digital Telco</label>
-            <label><input type="checkbox" name="interest[]" value="Intelligent_Healthcare"> Intelligent Healthcare</label>
-            <label><input type="checkbox" name="interest[]" value="Network_VAS"> Network VAS</label>
-            <label><input type="checkbox" name="interest[]" value="Marketplace"> Marketplace</label>
-            <label><input type="checkbox" name="interest[]" value="Devops"> DevOps</label>
-            <!-- Add other checkboxes similarly -->
-            <!-- Repeat for other interests like Digital Healthcare, etc. -->
-        </div>
-        <input type="file" name="attachment">
-        <textarea name="comments" placeholder="Comments/Remarks"></textarea>
+                <div class="full-width">
+                    <label for="company_name">Company Name</label>
+                    <input type="text" id="company_name" name="company_name" placeholder="Company Name" required class="form-control">
+                </div>
 
-        <input type="hidden" name="action" value="submit_my_custom_form">
-        <input type="submit" value="Submit">
-    </form>
+                <h4>Contact Details</h4>
+
+                <div class="half-width">
+                    <label for="contact_name">Contact Name</label>
+                    <input type="text" id="contact_name" name="contact_name" placeholder="Contact Name" required class="form-control">
+                </div>
+
+                <div class="half-width">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone (with country code)" required class="form-control">
+                </div>
+
+                <div class="half-width">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required class="form-control">
+                </div>
+
+                <div class="full-width">
+                    <label for="customer_requirement">Customer Requirement</label>
+                    <textarea id="customer_requirement" name="customer_requirement" placeholder="Customer Requirement" class="form-control"></textarea>
+                </div>
+
+            </div>
+
+            <!-- Partner Info -->
+            <div class="form-section partner-info">
+                <h3>Partner Information</h3>
+
+                <div class="full-width">
+                    <label for="partner_name">Partner Name</label>
+                    <input type="text" id="partner_name" name="partner_name" placeholder="Partner Name" required class="form-control">
+                </div>
+
+                <h4>Contact Details</h4>
+
+                <div class="half-width">
+                    <label for="partner_contact">Contact Person</label>
+                    <input type="text" id="partner_contact" name="partner_contact" placeholder="Contact Person" required class="form-control">
+                </div>
+
+                <div class="half-width">
+                    <label for="partner_phone">Phone</label>
+                    <input type="tel" id="partner_phone" name="partner_phone" placeholder="Phone (with country code)" required class="form-control">
+                </div>
+
+                <div class="half-width">
+                    <label for="partner_email">Email</label>
+                    <input type="email" id="partner_email" name="partner_email" placeholder="Email" required class="form-control">
+                </div>
+
+            </div>
+
+            <div class="form-section">
+                <h4>Area of Interest</h4>
+                <!-- Checkbox options -->
+                <div class="form-checkbox-group">
+                    <!-- Repeat for other interests -->
+                    <label><input type="checkbox" name="interest[]" value="AI"> AI</label>
+                    <label><input type="checkbox" name="interest[]" value="Digital Healthcare"> Digital Healthcare</label>
+                    <label><input type="checkbox" name="interest[]" value="Digital Telco"> Digital Telco</label>
+                    <label><input type="checkbox" name="interest[]" value="Intelligent Healthcare"> Intelligent Healthcare</label>
+                    <label><input type="checkbox" name="interest[]" value="Network VAS"> Network VAS</label>
+                    <label><input type="checkbox" name="interest[]" value="Marketplace"> Marketplace</label>
+                    <label><input type="checkbox" name="interest[]" value="DevOps"> DevOps</label>
+                    <!-- ... other checkboxes ... -->
+                </div>
+            </div>
+
+            <div class="form-section">
+                <label for="attachment">Attachment</label>
+                <input type="file" id="attachment" name="attachment" class="form-control-file">
+            </div>
+
+            <div class="form-section">
+                <label for="comments">Comments / Remarks</label>
+                <textarea id="comments" name="comments" placeholder="Comments/Remarks" class="form-control"></textarea>
+            </div>
+
+            <div class="form-section">
+                <input type="hidden" name="action" value="submit_my_custom_form">
+                <input type="submit" value="Submit" class="form-submit-button">
+            </div>
+        </form>
+    </div>
+
 <?php
     return ob_get_clean();
 }
 add_shortcode('my_custom_form', 'my_custom_form_shortcode');
+
 
 
 function handle_my_custom_form_submission()
@@ -193,17 +259,23 @@ function send_data_to_pardot($data)
 
 function my_custom_form_admin_menu()
 {
+    $icon_url = 'dashicons-businessman';  // This is a Dashicon class. Replace with another Dashicon class if needed.
+    $position = 20;  // Position 20 is typically just below 'Pages' which is at 20. Use 21 to place it just below Pages.
+
     add_menu_page(
         'Deal Registrations',      // Page title
         'Deal Registrations',      // Menu title
         'manage_options',        // Capability
         'customer_deal_registrations',  // Menu slug
-        'customer_deal_registrations_display_submissions'  // Function to display the page
+        'customer_deal_registrations_display_submissions',  // Function to display the page
+        $icon_url,               // Icon URL
+        $position                // Position
     );
 }
 add_action('admin_menu', 'my_custom_form_admin_menu');
 
-function customer_deal_registrations_display_submissions() {
+function customer_deal_registrations_display_submissions()
+{
     global $wpdb;
     $table_name = $wpdb->prefix . 'my_custom_form';
 

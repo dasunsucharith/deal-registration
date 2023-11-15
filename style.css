@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Styles for the custom form */
+.deal-registration-form {
+    font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+}
+
+.my-custom-form {
+    font-family: 'Poppins', sans-serif;
+    /* max-width: 900px; */ /* Increased form width */
+    margin: 30px auto;
+    padding: 30px; /* Increased padding for more space */
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.deal-registration-form h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px; /* Increased bottom margin */
+    font-size: 32px; /* Larger font size for the heading */
+}
+
+.my-custom-form .form-section {
+    margin-bottom: 50px; /* Increased bottom margin for sections */
+}
+
+.my-custom-form h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px; /* Increased padding */
+    margin-bottom: 30px; /* Increased margin */
+    color: #333;
+    font-size: 24px; /* Larger font size for section headings */
+}
+
+.my-custom-form h4 {
+    margin-top: 25px; /* Increased top margin */
+    margin-bottom: 15px; /* Increased bottom margin */
+    color: #333;
+    font-size: 20px; /* Larger font size for subheadings */
+}
+
+.my-custom-form .full-width,
+.my-custom-form .half-width {
+    float: left;
+    box-sizing: border-box;
+    padding-right: 15px; /* Adjusted right padding */
+}
+
+.my-custom-form .full-width {
+    width: 100%;
+}
+
+.my-custom-form .half-width {
+    width: calc(50% - 20px); /* Subtract padding/margin */
+    margin-bottom: 20px; /* Space between side-by-side fields */
+}
+
+/* Clearfix for .form-section */
+.my-custom-form .form-section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.my-custom-form label {
+    display: block;
+    margin-bottom: 10px; /* Increased bottom margin for labels */
+    font-weight: 600; /* Boldness for label text */
+    color: #333;
+}
+
+.my-custom-form .form-control {
+    width: 100%;
+    padding: 15px; /* Increased padding for inputs */
+    margin-bottom: 20px; /* Increased margin for inputs */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners for inputs */
+    font-size: 16px; /* Font size for inputs */
+}
+
+.my-custom-form .form-control-file {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 20px; /* Increased margin for file input */
+}
+
+.my-custom-form .form-checkbox-group {
+    margin-bottom: 20px; /* Increased margin for checkbox groups */
+}
+
+.my-custom-form .form-checkbox-group label {
+    display: block; /* Make checkbox labels block to stack vertically */
+    margin-bottom: 10px; /* Space between checkboxes */
+}
+
+.my-custom-form .form-submit-button {
+    background-color: #0056b3; /* Changed button color */
+    color: #ffffff;
+    padding: 15px 30px; /* Increased padding for button */
+    border: none;
+    border-radius: 5px; /* Rounded corners for button */
+    font-size: 18px; /* Larger font size for button */
+    font-weight: 600; /* Boldness for button text */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.my-custom-form .form-submit-button:hover {
+    background-color: #00407a; /* Darker shade on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .my-custom-form .half-width {
+        width: 100%;
+        padding-right: 0;
+    }
+}
