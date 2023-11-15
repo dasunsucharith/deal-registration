@@ -214,6 +214,41 @@ function handle_my_custom_form_submission()
         //    ...
         // ]);
 
+
+        // Check for a successful database insertion
+        if ($wpdb->insert_id > 0) {
+            // Prepare data for Pardot submission
+            $pardot_data = [
+                'company' => $company_name,
+                'contact' => $contact_name,
+                'phone'   => $phone,
+                'email'   => $email,
+                // Include other fields for Pardot as necessary
+            ];
+
+            // Pardot Form Handler URL
+            $pardot_url = 'https://go.globalwavenet.com/l/886883/2023-11-15/2wlylf';
+
+            // Use wp_remote_post to send data to Pardot
+            $response = wp_remote_post($pardot_url, [
+                'body' => $pardot_data
+            ]);
+
+            // Check for success or error in Pardot submission
+            if (is_wp_error($response)) {
+                // Handle error in Pardot submission
+                error_log('Pardot submission error: ' . $response->get_error_message());
+            } else {
+                // Check response code and body to ensure submission was successful
+                $http_code = wp_remote_retrieve_response_code($response);
+                $body = wp_remote_retrieve_body($response);
+                // Depending on Pardot's response, you might need to handle it differently
+            }
+        } else {
+            // Handle the error in case the database insertion failed
+            error_log('Database insertion failed');
+        }
+
         // 4. Redirect or Output a Success Message
         wp_redirect(home_url('/thank-you')); // Redirect to a thank-you page
         exit;
