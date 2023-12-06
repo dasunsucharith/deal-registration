@@ -1,37 +1,37 @@
 Deal Registration - Custom WordPress Plugin
 Description
-The Deal Registration plugin for WordPress is a custom solution designed to facilitate easy deal registration within partner programs. This plugin allows partners to register deals directly through a form on the website, with the data being saved to a MySQL table. Admins can view and manage these deals from the WordPress dashboard. Ideal for businesses looking to streamline their partner program processes, this plugin combines functionality with user-friendly design.
+The Deal Registration plugin for WordPress is a tailored solution designed to streamline deal registration within partner programs. This user-friendly plugin enables partners to register deals through a form on your website, with data securely saved to a MySQL table. Admins can conveniently manage these submissions from the WordPress dashboard.
 
 Features
-Custom Form for Deal Registration: A comprehensive form for partners to register deals.
-Admin Dashboard Integration: Easy management and viewing of registered deals from the WordPress admin area.
-Data Storage in MySQL: Secure and organized data storage in a MySQL table.
-Styling with CSS: Custom styling for an enhanced user experience.
-Pardot Integration: Functionality to send data to Pardot for marketing automation.
+Custom Form: Easy-to-use form for deal registration.
+Admin Dashboard Integration: View and manage deal submissions efficiently.
+MySQL Data Storage: Secure and organized data handling.
+Custom CSS Styling: Enhanced aesthetics for a better user experience.
+Pardot Integration: Capability to send data to Pardot for marketing automation.
 Installation
-Upload Plugin: Upload the deal-registration folder to the /wp-content/plugins/ directory of your WordPress site.
-Activate Plugin: Navigate to the 'Plugins' menu in WordPress and activate the 'Deal Registration' plugin.
-Use Shortcode: Place the [my_custom_form] shortcode in your pages or posts to display the deal registration form.
+To install the plugin, follow these steps:
+
+Upload Plugin: Upload the deal-registration folder to the /wp-content/plugins/ directory on your WordPress site.
+Activate Plugin: In the WordPress admin area, go to 'Plugins' and activate the 'Deal Registration' plugin.
+Implement Shortcode: Use the [my_custom_form] shortcode in your posts or pages to display the deal registration form.
 Usage
-After installation and activation:
-
-Use the shortcode [my_custom_form] to display the deal registration form.
-Access the WordPress admin dashboard to view and manage the deal submissions.
+Use the [my_custom_form] shortcode to embed the deal registration form on your website.
+Access deal submissions via the WordPress admin dashboard.
 Requirements
-WordPress 5.0 or higher.
-MySQL database.
+WordPress version 5.0 or higher.
+MySQL database setup.
 Customization
-The plugin can be customized to fit specific requirements. For custom development services, feel free to contact the developer.
+For specific customizations, feel free to reach out to the developer.
 
-Contributions
-Contributions are welcome! If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
+Contributing
+Contributions are welcome! Please fork the repository and create a feature branch for any changes. Pull requests are appreciated.
 
-Licensing
-The code in this project is licensed under [LICENSE-NAME] license.
+License
+This project is licensed under the [LICENSE-NAME].
 
 Contact
-For any queries or custom development requests, please contact:
+For inquiries or custom development services, please contact:
 
 Name: [Your Name]
 Email: [Your Email]
-LinkedIn/GitHub: [Your LinkedIn/GitHub Profile Link]
+LinkedIn/GitHub: [Your LinkedIn/GitHub Profile URL]
